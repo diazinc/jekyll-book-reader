@@ -1,0 +1,88 @@
+<style>
+
+.intimacy-test {
+    display: block;
+    width: 400px;
+    height: 60px;
+    margin: 40vh auto 0;
+}
+
+.intimacy-test__number {
+    font-size: 22px;
+}
+
+.intimacy-test__question {
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    display: none;
+}
+
+.intimacy-test__option {
+    display: inline-block;
+    margin:0;
+    width: calc(100% / 3);
+    text-align: center;
+    background-color: #334545;
+    color: #fff;
+    text-decoration: none;
+}
+
+.intimacy-test__option:hover {
+    background-color: #d4a17a;
+    cursor: pointer;
+}
+
+.intimacy-test__progress-bar {
+    width: 100%;
+    height: 2px;
+    background-color: #ddd;
+}
+
+.intimacy-test__progress-bar--progress {
+    width: 0%;
+    background-color: #334545;
+    -webkit-transition: width .5s ease-in-out;
+            transition: width .5s ease-in-out;
+}
+
+.text-align-left {
+    text-align: left;
+}
+
+.el1 {}
+
+.el2 {}
+
+
+</style>
+<html>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/test.js"></script>
+<body>
+
+    <div class="intimacy-test">
+        <p class="intimacy-test__number">1/10</p>
+        <div class="intimacy-test__progress-bar el1">
+            <div class="intimacy-test__progress-bar intimacy-test__progress-bar--progress el1">
+            </div>
+        </div>
+        <p class="intimacy-test__question text-align-left el1">How often do you fight?</p>
+        <span class="intimacy-test__option">Frequently</span><!--
+     --><span class="intimacy-test__option">Sometimes</span><!--
+     --><span class="intimacy-test__option">Rarely</span>
+    </div>
+
+    <!-- <div class="intimacy-test">
+        <p class="intimacy-test__number">Score: 0%</p>
+        <div class="intimacy-test__progress-bar el2">
+            <div class="intimacy-test__progress-bar intimacy-test__progress-bar--progress el2">
+            </div>
+        </div>
+        <p class="intimacy-test__question text-align-left e2">Here is a description. One of three results will be displayed here. </p>
+    </div> -->
+    <br><br><br><br><br><br>
+
+
+<body>
+</html>

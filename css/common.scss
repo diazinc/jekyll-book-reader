@@ -1,0 +1,36 @@
+---
+---
+// This file collects all SCSS files and turns them into a single compressed CSS file. Dashes above are needed for Jekyll to identify.
+
+
+
+@import '_normalize';
+@import '_grids';
+// Setting variables like colors and margins.
+@import 'config/colors';
+@import 'config/text';
+@import 'config/margins';
+@import 'config/breakpoints';
+
+// Tools like mixins and functions.
+@import "tools/bourbon/bourbon";
+@import "tools/neat/neat";
+
+// Generic styles like resets and border-box.
+@import 'reset';
+
+// Base, like H1-H6, links and lists.
+@import 'base/fonts';
+
+// Objects, blocks, which are resuable componenets without cosmetics. Only classes.
+@import 'blocks/navigation-menu.scss';
+@import 'blocks/parallax-window.scss';
+@import 'blocks/reading.scss';
+@import 'blocks/super-simple-slider.scss';
+@import 'blocks/fade-in.scss';
+
+// Components, elements, designed pieces of UI. Only classes.
+
+// Optional theme  style would go here.
+
+// Trumps, overrides that usually carry !important. Only classes.

@@ -1,0 +1,138 @@
+.fade-in-element {
+  $base-border-color: gainsboro !default;
+  $base-border-radius: 3px !default;
+  $base-background-color: white !default;
+  $base-line-height: 1.5em !default;
+  $base-spacing: 1.5em !default;
+  $dark-gray: #333 !default;
+  $base-font-color: $dark-gray !default;
+
+  p {
+    color: $base-font-color;
+    line-height: $base-line-height;
+  }
+}
+
+.js-fade-element-hide {
+  opacity: 0;
+}
+
+.js-fade-element-show {
+  opacity: 1;
+  transition: all 0.4s ease-in-out;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+ul.dropdown-menu {
+    min-width: 100px;
+    background-color: orangered;
+    margin: 0px 0px;
+    padding: 0px 0px;
+}
+
+.dropdown-menu>li>a:hover {
+    color: white;
+    text-decoration: none;
+    background-color: tomato;
+}
+
+.mytitle {
+    background-color: white;
+    color: orangered;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.mytitle:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.dropdown-menu>li>a {
+    background-color: orangered;
+    color: white;
+    border-bottom: 2px tomato solid;
+    font-size: 1.5em;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+}
+
+.sort__note {
+  background-color: white;
+  font-size: 1.5em;
+  margin-left: 30px;
+  margin-right: 10px;
+}
+
+.h1--big {
+  margin-bottom: 40px;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.check_padding {
+  margin-left: 40px;
+  cursor: pointer;
+  display: inline-block;
+  height: 30px;
+}
+
+.grid.grid--full {
+  overflow: hidden;
+}
+
+.book__title {
+  display: inline;
+}
+
+.book__content {
+  overflow: hidden;
+}
+
+.post_banner {
+  height: 120px;
+  width: 100%
+}
+
+.post--cover--size {
+  width: 100%;
+  height: 25vw;
+  top: 0px;
+  left: 0px;
+}
+
+.post--nav--size {
+  width: 6vw;
+  height: 9vw;
+  min-height: 117px;
+  min-width: 75px;
+}
+
+.nav__content {
+  text-align: left;
+  margin-left: 10vw;
+  margin-bottom: 1vw;
+}
+
+.nav__score {
+  font-size: 2rem;
+  font-weight: 600;
+  opacity: .3;
+}
+
+.relative {
+ position: relative; 
+}
+
+.post__hr {
+  margin:0px;
+  margin-top: 13vw;
+}

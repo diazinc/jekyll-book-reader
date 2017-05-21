@@ -1,0 +1,9 @@
+That means that instead of having:
+
+<div class="content  one-whole  desk-three-quarters">
+You could just have this Sass:
+
+.content{
+    @extend .one-whole;
+    @extend .desk-three-quarters;
+}

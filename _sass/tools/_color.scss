@@ -1,0 +1,12 @@
+//    Creates classes for colors
+
+$list-name: (
+    "orange" $orange,
+    "grey" $orange,
+);
+
+@each $a in $list-name {
+    .color--#{nth($a, 1)} {
+        color: nth($a, 2);
+    }
+}

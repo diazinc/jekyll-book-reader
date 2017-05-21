@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+    <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta charset="UTF-8">
+    <!-- <meta name="msvalidate.01" content="018E54A0291F536C45C2232594BB7F7A" />  Bing validation -->
+    <meta name="description" content="<?php echo $description ?>"> <!-- 155 character limit to be safe -->
+    <meta name="robots" content="NOODP"> <!-- prevents engines from getting snippet from ODP -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1"> <!-- variables: width=device-width, maximum-scale=1.0, user-scalable=0  (remember to keep comma)-->
+
+    {% assign jspaths = "js/navigation-menu.js|js/parallax-window.js|js/scroll-on-page.js|js/fade-in.js|js/super-simple-slider.js|js/test.js" | split: "|" %}
+    {% if page.url != '/' %}
+    {% assign prefix = '../' %}
+    {% else %}
+    {% assign prefix = '' %}
+    {% endif %}
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/common.css">
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    {% for jspath in jspaths %}
+    <script type="text/javascript" src={{ jspath | prepend: prefix }}></script>
+    {% endfor %}
+
+    </head>    
+    <body class="homepage">
+    <div class="navigation" role="banner">
+        <div class="navigation-wrapper container">
+            <a class="logo small" href="/">Reading</a>
+            <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu"><div class="menu-icon"></div>Menu</a>
+          </div>
+    </div>
+
+    <div class="container">
+         <h2 class="h1 h1--big">Recently</h2>
+    </div>
+    <div class="grid grid--full">
+        {% assign posts = site.posts | filterByTitleDate %}
+        {% for post in posts limit:3 %}
+            <a class="recently grid__item lap--one-third desk--one-third" href={{ post.url }} style={{ post.dominant-color | prepend: 'color:#' | append: ';float:left;' }}>
+                <img class="recently__cover" src={{ post.path | getFileName }}>
+                <div class="recently__cover--blur" style={{ post.dominant-color | prepend: 'background-color:#' }}>
+                </div>
+                <p class="recently__title">{{ post.book-title }}</p>
+                <p class="recently__author">{{ post.book-author }}</p>
+                <p class="recently__notes small">{{ post.excerpt| strip_html | truncate : 260 }}</p>
+                <p class="recently__score">{{ post.rating }}/5</p>
+                <div class="recently__gradient">
+                </div>
+                <div class="recently__background" style={{ post.dominant-color | prepend: 'background-color:#' }}>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+
+    <div class="container">
+    	<div class="grid grid--full">
+        	{% include leftlist.html %}
+    		{% include filtered.html %}
+        </div>
+    </div>
+  </body>

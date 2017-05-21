@@ -1,0 +1,119 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (5.0.0.1)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (~> 0.7)
+      minitest (~> 5.1)
+      tzinfo (~> 1.1)
+    addressable (2.5.0)
+      public_suffix (~> 2.0, >= 2.0.2)
+    backports (3.6.8)
+    byebug (9.0.6)
+    chunky_png (1.3.8)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.8)
+      climate_control (>= 0.0.3, < 1.0)
+    coderay (1.1.1)
+    color (1.8)
+    colorator (1.1.0)
+    concurrent-ruby (1.0.2)
+    ffi (1.9.14)
+    forwardable-extended (2.6.0)
+    global (0.1.2)
+      activesupport (>= 2.0)
+    i18n (0.7.0)
+    jekyll (3.2.1)
+      colorator (~> 1.0)
+      jekyll-sass-converter (~> 1.0)
+      jekyll-watch (~> 1.1)
+      kramdown (~> 1.3)
+      liquid (~> 3.0)
+      mercenary (~> 0.3.3)
+      pathutil (~> 0.9)
+      rouge (~> 1.7)
+      safe_yaml (~> 1.0)
+    jekyll-admin (0.1.1)
+      addressable (~> 2.4)
+      jekyll (~> 3.1)
+      sinatra (~> 1.4)
+      sinatra-contrib (~> 1.4)
+    jekyll-sass-converter (1.4.0)
+      sass (~> 3.4)
+    jekyll-watch (1.5.0)
+      listen (~> 3.0, < 3.1)
+    kramdown (1.11.1)
+    liquid (3.0.6)
+    listen (3.0.8)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
+    mercenary (0.3.6)
+    method_source (0.8.2)
+    minima (1.0.1)
+    minitest (5.9.1)
+    miro (0.4.0)
+      chunky_png
+      cocaine
+      color
+      oily_png
+    multi_json (1.12.1)
+    octopress-debugger (1.0.2)
+      jekyll
+      pry-byebug
+    oily_png (1.2.1)
+      chunky_png (~> 1.3.7)
+    pathutil (0.14.0)
+      forwardable-extended (~> 2.6)
+    pry (0.10.4)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    pry-byebug (3.4.0)
+      byebug (~> 9.0)
+      pry (~> 0.10)
+    public_suffix (2.0.4)
+    rack (1.6.4)
+    rack-protection (1.5.3)
+      rack
+    rack-test (0.6.3)
+      rack (>= 1.0)
+    rb-fsevent (0.9.7)
+    rb-inotify (0.9.7)
+      ffi (>= 0.5.0)
+    rouge (1.11.1)
+    safe_yaml (1.0.4)
+    sass (3.4.22)
+    sinatra (1.4.7)
+      rack (~> 1.5)
+      rack-protection (~> 1.4)
+      tilt (>= 1.3, < 3)
+    sinatra-contrib (1.4.7)
+      backports (>= 2.0)
+      multi_json
+      rack-protection
+      rack-test
+      sinatra (~> 1.4.0)
+      tilt (>= 1.3, < 3)
+    slop (3.6.0)
+    thread_safe (0.3.5)
+    tilt (2.0.5)
+    tzinfo (1.2.2)
+      thread_safe (~> 0.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  global
+  jekyll (= 3.2.1)
+  jekyll-admin
+  minima
+  miro
+  octopress-debugger
+
+RUBY VERSION
+   ruby 2.3.1p112
+
+BUNDLED WITH
+   1.13.5

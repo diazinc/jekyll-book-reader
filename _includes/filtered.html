@@ -1,0 +1,63 @@
+<div class="grid__item lap--one-third desk--two-thirds book-list-small" style="float:right">
+            {% if page.type %}
+            {% assign option = page.type %}
+            {% endif %}
+
+            <div style="padding-left:80px;">
+                <h2 class="h1 h1--big" style="display:inline-block">Library</h2>
+                <span class="sort__note">Sorted by</span>
+                <div class="dropdown">
+                    <span class="mytitle" data-toggle="dropdown" style="display:inline-block;">{{option}}
+                    </span>
+                    <ul class="dropdown-menu">
+                      <li><a href="/">Score</a></li>
+                      <li><a href="/title">Title</a></li>
+                      <li><a href="/date">Date</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            {% if option %}
+                {% case page.type %}
+                    {% when 'Score' %}
+                        {% assign posts = site.posts | sort: 'rating' | reverse %}
+
+                    {% when 'Title' %}
+                        {% assign posts = site.posts | filterByBookTitle %}
+
+                    {% when 'Date' %}
+                        {% assign posts = site.posts | sort: 'date' | reverse %}
+                {% endcase %}
+            {% else %}
+                {% assign option = 'Score' %}
+            {% endif %}
+
+            {% for post in posts %}            
+                {% if post.reads != nil and post.date-finished != nil %}
+                    <div class="book">
+                        <div class="book__score">
+                            {{ post.rating }}/5
+                        </div>
+                        <div class="book__content">
+                            <a class="book__title" style={{ post.dominant-color | prepend: 'color:#'  }} href={{ post.url }}>
+                                {{ post.book-title }}
+                            </a>
+                            <div class="book__author">
+                                {{ post.book-author }}
+                            </div>
+                            <div>
+                                {% assign post_dates = post.date-finished | split: ',' | filterLastDate %}
+                                {% for date in post_dates %}
+                                    <span class="book__tag">{{ date | replace: '-', '/' }}</span>
+                                {% endfor %}
+                                <span class="book__tag">{{ post.reads }}x</span>
+
+                                {% for tag in post.tags %}
+                                    <span class="book__tag">{{ tag | remove: ','}}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>

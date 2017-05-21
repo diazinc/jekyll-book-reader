@@ -1,0 +1,35 @@
+* {
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+			box-sizing: border-box;
+}
+
+html {
+    background-color: $white;
+    background-repeat: no-repeat;
+    background-position: 50% top;
+    background-size: cover;
+    min-height: 100%; // Make sure background image covers entire viewport
+    position: relative; // --"--
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden; // Prevent potential horizontal scrollbar
+}
+
+body {
+    font: 100%/#{$default-line-height} $default-font-family;
+    color: $color-text;
+	margin: 0;
+	padding: 0;
+}
+
+p {
+    margin: 0 0 $default-margin;
+}
+
+small {
+    font-size: $small-font-size;
+}
+
+img {
+    max-width: 100%;
+}

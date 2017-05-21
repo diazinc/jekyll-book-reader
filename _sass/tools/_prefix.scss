@@ -1,0 +1,20 @@
+//    Creates broswer variations.
+
+@mixin prefix($declarations, $prefixes: (webkit moz ms o)) {
+  @each $property, $value in $declarations {
+    @each $prefix in $prefixes {
+      #{'-' + $prefix + '-' + $property}: $value;
+    }
+    // Output standard non-prefixed declaration
+    #{$property}: $value;
+  }
+}
+
+// Usage example
+.selector {
+  @include prefix((
+    column-count: 3,
+    column-gap: 1.5em,
+    column-rule: 2px solid red
+    ), webkit moz ms o);
+}

@@ -1,0 +1,113 @@
+{% include header.html %}
+
+<div class="post_banner" style={{ page.dominant-color | prepend: 'background-color:#' }}></div>
+<br><br><br>
+<div class="container">
+  <div class="row text-center">
+    <h2 class="h1 h1--big" style={{ page.dominant-color | prepend: 'color:#' }}>{{ page.book-title }}</h2>
+    <h3 class="book__author">{{ page.book-author }}</h3>
+  </div>
+
+  <div class="row text-center">
+    <div class="col-md-4 col-md-push-4">
+      <div class="post--cover--size">
+        <img class="recently__cover post--cover--size img-responsive" src={{ page.path | getFileName }}>
+        <div class="recently__cover--blur post--cover--size img-responsive" style={{ page.dominant-color | prepend: 'background-color:#' }}>
+        </div>
+      </div>
+
+<!--       <div class="recently__gradient post_banner">
+      </div> -->
+    </div> 
+  </div>
+
+  <div class="row">
+    <br>
+    <article role="main">
+      {{ content }}
+    </article>
+
+    {% if page.social-share %}
+      {% include social-share.html %}
+    {% endif %}
+
+    <br>
+    <br>
+    <br>
+
+    <ul class="pager">
+      <div class="row">
+      <div class="col-md-8 col-md-push-2">
+      <p class="h3 text-left">READ MORE</p>
+      {% if page.previous.url %}
+        {% assign prevPost = page | getPreviousPost %}
+        {% if prevPost != nil %}
+          <hr style="margin:0px;">
+          <a class="recently" href="{{ prevPost.url | prepend: site.baseurl | replace: '//', '/' }}" style={{ prevPost.dominant-color | prepend: 'color:#' | append: ';float:left;margin-bottom:0px;padding:0px;height:12vw;min-height:150px;' }}>
+              <img class="recently__cover post--nav--size img-responsive" src={{ prevPost.path | getFileName }}>
+              <div class="recently__cover--blur post--nav--size img-responsive" style={{ prevPost.dominant-color | prepend: 'background-color:#' }}>
+              </div>
+              <br>
+              <p class="h2 nav__content" style= {{ prevPost.dominant-color | prepend: 'color:#' }}>{{ prevPost.book-title }}</p>
+              <div class="nav__content" style= {{ prevPost.dominant-color | prepend: 'color:#' }}>
+              {% if page.tags.size > 0 %}
+              {% assign post_dates = prevPost.date-finished | split: ',' | filterLastDate %}
+              {% for date in post_dates %}
+              <span class="book__tag" style="font-size:1.13rem">{{ date | replace: '-', '/' }}</span>
+              {% endfor %}
+              <span class="book__tag" style="font-size:1.13rem">{{ prevPost.reads }}x</span>
+
+              {% for tag in prevPost.tags %}
+              <span class="book__tag" style="font-size:1.13rem">{{ tag | remove: ','}}</span>
+              {% endfor %}
+              {% endif %}
+              <br>
+              <span class="nav__score">{{ prevPost.rating }}/5</span>
+              </div>
+          </a>
+        {% endif %}
+      {% endif %}
+
+      {% if page.next.url and page.previous.url %}
+        <hr class="post__hr">
+      {% endif %}
+
+      {% if page.next.url %}
+        {% assign nextPost = page | getNextPost %}
+        {% if nextPost != nil %}
+        <hr style="margin:0px;">
+          <a class="recently" href="{{ nextPost.url | prepend: site.baseurl | replace: '//', '/' }}" style={{ page.next.dominant-color | prepend: 'color:#' | append: ';float:left;margin-bottom:0px;padding:0px;' }}>
+              <img class="recently__cover post--nav--size img-responsive" src={{ nextPost.path | getFileName }}>
+              <div class="recently__cover--blur post--nav--size img-responsive" style={{ nextPost.dominant-color | prepend: 'background-color:#' }}>
+              </div>
+              <br>
+              <p class="h2 nav__content" style= {{ nextPost.dominant-color | prepend: 'color:#' }}>{{ nextPost.book-title }}</p>
+              <div class="nav__content" style= {{ nextPost.dominant-color | prepend: 'color:#' }}>
+              {% if page.tags.size > 0 %}
+              {% assign post_dates = nextPost.date-finished | split: ',' | filterLastDate %}
+              {% for date in post_dates %}
+              <span class="book__tag" style="font-size:1.13rem">{{ date | replace: '-', '/' }}</span>
+              {% endfor %}
+              <span class="book__tag" style="font-size:1.13rem">{{ nextPost.reads }}x</span>
+              {% for tag in nextPost.tags %}
+              <span class="book__tag" style="font-size:1.13rem">{{ tag | remove: ','}}</span>
+              {% endfor %}
+              {% endif %}
+              <br>
+              <span class="nav__score">{{ nextPost.rating }}/5</span>
+              </div>
+          </a>
+          </div>
+          <hr class="col-md-8 col-md-push-2" style="margin:0px;">
+        {% endif %}
+      {% endif %}
+    </div>
+    </ul>
+
+    {% if page.comments %}
+      <div class="disqus-comments">
+        {% include disqus.html %}
+      </div>
+    {% endif %}
+  </div>
+</div>

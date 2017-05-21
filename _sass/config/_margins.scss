@@ -1,0 +1,42 @@
+// Margins
+
+$site-width: 980px;
+$site-width-wide: 1250px; // Used when isWidePage templateConfig is true
+
+$default-gutter: 1rem;
+$small-gutter: $default-gutter / 2;
+
+$default-margin: 1rem;
+$small-margin: $default-margin / 2;
+$large-margin: $default-margin * 2;
+
+$default-padding: 1.25rem;
+$small-padding: $default-padding / 2;
+$large-padding: $default-padding * 2;
+
+$button-padding-vertical: .5rem;
+$button-padding-horizontal: 1rem;
+$button-border-width: .15rem;
+
+$form-field-height: 2.5rem;
+
+$company-logo-width: 323px;
+$company-logo-height: 130px;
+
+$media-element-media-width-mobile: 2.8rem;
+$media-element-media-height-mobile: 2.8rem;
+
+$media-element-media-width: 5rem;
+$media-element-media-height: 5rem;
+
+// may not be the place for this
+.container {
+    margin: 0 auto;
+    padding: 0 48px;
+    max-width: 1200px;
+    position: relative;
+
+    @media only screen and (max-width: 480px) {
+        padding: 0 16px;
+    }
+}

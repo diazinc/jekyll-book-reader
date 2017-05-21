@@ -1,0 +1,14 @@
+// Sizing shortcuts
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+@mixin square($size) {
+  @include size($size, $size);
+}
+
+// Usage example
+.selector {
+  @include size(16px, 16px);
+}

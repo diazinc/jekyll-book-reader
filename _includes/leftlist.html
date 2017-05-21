@@ -1,0 +1,31 @@
+<div class="grid__item lap--one-third desk--one-third book-list-small">
+    <h2 class="h1 h1--big">Currently</h2>
+    {% assign posts = site.posts | sort: 'title' %}
+    {% for post in posts %}
+        {% if post.reads != nil and post.date-finished == nil %}
+            <div class="book book--small">
+                <div class="book__title book__title--small" style={{ post.dominant-color | prepend: 'color:#' }} href="#">
+                    {{ post.book-title }}
+                </div>
+                <div class="book__author book__author--small">
+                    {{ post.book-author }}
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+
+    <h2 class="h1 h1--big">Next</h2>
+    {% assign posts = site.posts | sort: 'title' %}
+    {% for post in posts %}
+        {% if post.reads == nil and post.date-finished == nil %}
+            <div class="book book--small">
+                <div class="book__title book__title--small" style={{ post.dominant-color | prepend: 'color:#'  }} href="#">
+                    {{ post.book-title }}
+                </div>
+                <div class="book__author book__author--small">
+                    {{ post.book-author }}
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>

@@ -1,0 +1,27 @@
+
+[1mFrom:[0m /home/antony/.rvm/gems/ruby-2.3.1/gems/octopress-debugger-1.0.2/lib/octopress-debugger.rb @ line 34 Octopress::Debugger::Tag#render:
+
+    [1;34m13[0m: [32mdef[0m [1;34mrender[0m(context)
+    [1;34m14[0m:   @context = context
+    [1;34m15[0m: 
+    [1;34m16[0m:   [1;34m# HELP: How does this work?[0m
+    [1;34m17[0m:   [1;34m#[0m
+    [1;34m18[0m:   [1;34m# Try these commands:[0m
+    [1;34m19[0m:   [1;34m#  site   => Jekyll's Site instance[0m
+    [1;34m20[0m:   [1;34m#  page   => Current Page instance[0m
+    [1;34m21[0m:   [1;34m#  scopes => View local variable scopes[0m
+    [1;34m22[0m:   [1;34m#[0m
+    [1;34m23[0m:   [1;34m# Use `c` to read variables from Liquid's context [0m
+    [1;34m24[0m:   [1;34m#  c 'site' => site hash[0m
+    [1;34m25[0m:   [1;34m#  c 'page' => page hash[0m
+    [1;34m26[0m:   [1;34m#[0m
+    [1;34m27[0m:   [1;34m# Dot notation works too:[0m
+    [1;34m28[0m:   [1;34m#  c 'site.posts.first'[0m
+    [1;34m29[0m:   [1;34m#  c 'page.content'[0m
+    [1;34m30[0m:   [1;34m#  c 'post.tags'[0m
+    [1;34m31[0m: 
+    [1;34m32[0m:   binding.pry
+    [1;34m33[0m: 
+ => [1;34m34[0m:   [32mreturn[0m [31m[1;31m'[0m[31m[1;31m'[0m[31m[0m [1;34m# Debugger halts on this line[0m
+    [1;34m35[0m: [32mend[0m
+

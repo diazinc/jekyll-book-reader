@@ -1,0 +1,344 @@
+// I've broken the submenu flyout on mobile. probably by removing osmehting that seemd unecesary. do a comparison to get that piece back.
+
+.navigation {
+  $navigation-height: 49px;
+  $base-border-radius: 0;
+  $action-color: #477DCA;
+  $large-screen: 53.75em !default;
+  $navigation-padding: 1em;
+  $navigation-color: transparentize(white, 0.3);
+  $navigation-color-hover: white;
+  $navigation-nav-button-background: $action-color;
+  $navigation-active-link-color: transparentize(white, 0.5);
+  $navigation-submenu-padding: 1em;
+  $navigation-submenu-width: 12em;
+  $horizontal-bar-mode: $large-screen;
+
+  background-color: rgba(255, 255, 255, .97);
+  border-bottom: 1px solid #F0F4F9;
+  min-height: $navigation-height;
+  width: 100%;
+  z-index: 999;
+
+  .navigation-wrapper {
+    @include clearfix;
+    position: relative;
+    z-index: 9999;
+  }
+
+  .logo {
+    color: rgba(67, 78, 89, .6);
+    line-height: 48px;
+  }
+
+
+  .promise {
+      position: relative;
+      margin: 15px 0px 0px 16px;
+      float: left;
+      right: -16px;
+      opacity: 0;
+      display: block;
+      height: 16px;
+      width: 0px;
+      background-image: url(/img/promise--carmine.svg);
+        background-repeat: no-repeat;
+      background-size: 228px;
+      -webkit-transition: all 0.2s ease;
+         -moz-transition: all 0.2s ease;
+          -ms-transition: all 0.2s ease;
+              transition: all 0.2s ease;
+
+  @include media ($horizontal-bar-mode) {
+    right: -16px;
+    opacity: 1;
+    width: 228px;
+  }
+  }
+
+// Mobile view
+
+  .navigation-menu-button {
+    color: $light-carmine-pink;
+    position: relative;
+    display: block;
+    float: right;
+    opacity: 1;
+    right: 0;
+    line-height: $navigation-height;
+    margin: 0;
+    width: 80px;
+    padding-left: 32px;
+    text-decoration: none;
+    text-transform: uppercase;
+    -webkit-transition: all 0.2s ease;
+         -moz-transition: all .2s ease;
+          -ms-transition: all .2s ease;
+              transition: all .2s ease;
+
+    @include media ($horizontal-bar-mode) {
+      right: 60px;
+      width: 0px;
+      opacity: 0;
+    }
+
+    &:focus,
+    &:hover {
+      color: $shiraz;
+    }
+    &:before {
+        content: '';
+      position: absolute;
+      top: 0;
+      left: 0px;
+        margin-top: 16px;
+        float: left;
+        z-index: 30;
+        height: 16px;
+        width: 16px;
+        background-image: url(/img/list--light-coral.svg);
+      background-repeat: no-repeat;
+        background-size: 16px;
+        opacity: 1;
+        margin-right: 8px;
+        border: none;
+        cursor: pointer;
+    }
+
+    &:hover:before {
+        background-image: url(/img/list--shiraz.svg);
+    }
+  }
+
+
+// Nav menu
+
+  nav {
+    float: none;
+    min-height: $navigation-height;
+    z-index: 9999999;
+    font-size: 0.73rem;
+
+    @include media ($horizontal-bar-mode) {
+      float: right;
+      border-right: 1px solid $azalea;
+    }
+  }
+
+  ul.navigation-menu {
+    clear: both;
+    display: none;
+    margin: 0 auto;
+    overflow: visible;
+    padding: 0;
+    width: 100%;
+    z-index: 9999;
+
+    &.show {
+      display: block;
+    }
+
+    & .navigation-menu-button:hover:before {
+        background-image: url(/img/cross--light-coral.svg);
+    }
+
+    @include media ($horizontal-bar-mode) {
+      display: inline;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+
+// The nav items
+
+  ul li.nav-link {
+    display: block;
+    line-height: $navigation-height;
+    height: $navigation-height;
+    overflow: hidden;
+    text-align: right;
+    width: 100%;
+    z-index: 9999;
+    right: -32px;
+    -webkit-transition: all 0.2s ease;
+         -moz-transition: all .2s ease;
+          -ms-transition: all .2s ease;
+              transition: all .2s ease;
+
+
+    @include media ($horizontal-bar-mode) {
+      background: transparent;
+      display: inline;
+      line-height: $navigation-height;
+      text-decoration: none;
+      width: auto;
+      right: 0;
+      -webkit-transition: all 0.2s ease;
+           -moz-transition: all .2s ease;
+            -ms-transition: all .2s ease;
+                transition: all .2s ease;
+    }
+
+    a {
+      color: $light-carmine-pink;
+      display: inline-block;
+      text-decoration: none;
+      text-transform: uppercase;
+
+
+      @include media ($horizontal-bar-mode) {
+        padding-right: $small-margin;
+        padding-left: $small-margin;
+        border-left: 1px solid $azalea;
+      }
+
+      &:focus,
+      &:hover {
+        color: $shiraz;
+      }
+    }
+  }
+
+  .active-nav-item a {
+    border-bottom: 1px solid $navigation-active-link-color;
+    padding-bottom: 3px;
+  }
+
+
+// Sub menus
+
+  li.more.nav-link {
+    padding-right: 0;
+
+    @include media($horizontal-bar-mode) {
+      padding-right: $navigation-submenu-padding;
+    }
+
+    > ul > li:first-child a  {
+      padding-top: 1em;
+    }
+
+    a {
+      margin-right: $default-margin;
+    }
+
+    > a {
+      padding-right: 0.6em;
+    }
+
+    > a::after {
+      @include position(absolute, auto -0.4em auto auto);
+      color: $navigation-color;
+      content: "\25BE";
+    }
+  }
+
+  li.more {
+    overflow: visible;
+    padding-right: 0;
+
+    a {
+      padding-right: 0.8em;
+    }
+
+    > a {
+      padding-right: 1.6em;
+      position: relative;
+
+      @include media($horizontal-bar-mode) {
+        margin-right: $navigation-submenu-padding;
+      }
+
+      &::after {
+        content: "›";
+        font-size: 1.2em;
+        position: absolute;
+        right: $navigation-submenu-padding / 2;
+      }
+    }
+
+    &:focus > .submenu,
+    &:hover > .submenu {
+      display: block;
+    }
+
+    @include media($horizontal-bar-mode) {
+      padding-right: 0.8em;
+      position: relative;
+    }
+  }
+
+  ul.submenu {
+    display: none;
+    padding-left: 0;
+
+    background-color: #ab284a; /* fallback */
+    background: rgba(48,136,191,1);
+    background: -moz-linear-gradient(45deg,#ab284a 0, #ec7c85 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, #ab284a), color-stop(100%, #ec7c85));
+    background: -webkit-linear-gradient(45deg,#ab284a 0, #ec7c85 100%);
+    background: -o-linear-gradient(45deg,#ab284a 0, #ec7c85 100%);
+    background: -ms-linear-gradient(45deg,#ab284a 0, #ec7c85 100%);
+    background: linear-gradient(45deg,#ab284a 0, #ec7c85 100%);
+
+    @include media($horizontal-bar-mode) {
+      left: -$navigation-submenu-padding;
+      position: absolute;
+      top: 1.5em;
+    }
+
+    .submenu.fly-out-right {
+      @include media($horizontal-bar-mode) {
+        left: $navigation-submenu-width - 0.2em;
+        top: 0;
+      }
+    }
+
+    .submenu.fly-out-left {
+      @include media($horizontal-bar-mode) {
+        left: -$navigation-submenu-width + 0.2em;
+        top: 0;
+      }
+    }
+
+    .submenu {
+      @include media($horizontal-bar-mode) {
+        left: $navigation-submenu-width - 0.2em;
+        top: 0;
+      }
+    }
+
+    li {
+      display: block;
+      padding-right: 0;
+
+      @include media($horizontal-bar-mode) {
+        line-height: $navigation-height / 1.3;
+
+        &:first-child > a {
+          border-top-left-radius: $base-border-radius;
+          border-top-right-radius: $base-border-radius;
+        }
+
+        &:last-child > a {
+          border-bottom-left-radius: $base-border-radius;
+          border-bottom-right-radius: $base-border-radius;
+          padding-bottom: 0.7em;
+        }
+      }
+
+      a {
+        display: inline-block;
+        text-align: right;
+        width: 100%;
+
+        @include media($horizontal-bar-mode) {
+          padding-left: $navigation-submenu-padding;
+          text-align: left;
+          width: $navigation-submenu-width;
+        }
+      }
+    }
+  }
+}
